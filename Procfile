@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -jar target/otel-spring-gateway-0.0.1-SNAPSHOT.jar
+web: java com.demo.otelspringgateway.OtelSpringGatewayApplication
