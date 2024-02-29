@@ -2,8 +2,6 @@ spring:
   output:
     ansi:
       enabled: ALWAYS
-server:
-  port: ${PORT:8080}
 otel:
   traces:
     exporter: logging
