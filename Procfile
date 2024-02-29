@@ -1,0 +1,1 @@
+web: java -jar target/otel-spring-gateway-0.0.1-SNAPSHOT.jar

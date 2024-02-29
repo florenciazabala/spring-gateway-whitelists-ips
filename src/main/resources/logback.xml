@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <property name="CONSOLE_LOG_PATTERN"
+            value="%d{yyyy-MM-dd HH:mm:ss.SSS} %clr(OTEL: trace_id: %X{trace_id}, span_id: %X{span_id}, parent_id: %X{parent_id}){magenta} %clr(%-5level){green} %logger{36} %msg%n"/>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="otelConsole"
+            class="io.opentelemetry.instrumentation.logback.mdc.v1_0.OpenTelemetryAppender">
+        <appender-ref ref="console"/>
+    </appender>
+
+    <root level="DEBUG">
+        <appender-ref ref="otelConsole"/>
+    </root>
+</configuration>
